@@ -1,8 +1,17 @@
 """
 Streamlit UI for Medical Psychology Agent
 """
-import streamlit as st
 
+import os
+import sys
+
+# Ensure "src/" is on PYTHONPATH for Streamlit Cloud
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+SRC_DIR = os.path.join(ROOT_DIR, "src")
+if SRC_DIR not in sys.path:
+    sys.path.insert(0, SRC_DIR)
+
+import streamlit as st
 from medical_psychology_agent.agent import MedicalPsychologyAgent
 from medical_psychology_agent.config import Config
 
