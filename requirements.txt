@@ -1,0 +1,29 @@
+# --- Core app ---
+streamlit>=1.52.2,<2.0.0
+python-dotenv>=1.2.1,<2.0.0
+
+# --- LangChain / LangGraph stack ---
+langchain>=1.2.0,<2.0.0
+langchain-openai>=1.1.5,<2.0.0
+langchain-community>=0.3.0,<1.0.0
+langchain-qdrant>=1.1.0,<2.0.0
+langgraph>=1.0.2,<1.1.0
+
+# --- Vector DB client ---
+qdrant-client>=1.12.0,<2.0.0
+
+# --- Dataset loader ---
+datasets>=3.0.0,<4.0.0
+
+# --- Tokenizer + data utils ---
+tiktoken>=0.8.0,<1.0.0
+pandas>=2.3.3,<3.0.0
+
+# --- Reranker ---
+cohere>=5.0.0,<6.0.0
+
+# --- Observability (Langfuse) ---
+langfuse==3.10.1
+
+# --- Critical pin (biar nggak conflict) ---
+packaging<25
