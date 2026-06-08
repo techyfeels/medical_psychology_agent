@@ -7,6 +7,19 @@ from typing import Dict, List, Optional, TypedDict
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
+
+# Compatibility shim: langfuse 3.x tries to import ExecutionInfo from langgraph.runtime
+# which may not exist in langgraph 1.0.x — patch it before importing langfuse
+try:
+    from langgraph.runtime import ExecutionInfo  # noqa: F401
+except ImportError:
+    import sys as _sys
+    import types as _types
+    _rt = _sys.modules.get("langgraph.runtime") or _types.ModuleType("langgraph.runtime")
+    if not hasattr(_rt, "ExecutionInfo"):
+        _rt.ExecutionInfo = type("ExecutionInfo", (), {})
+    _sys.modules["langgraph.runtime"] = _rt
+
 from langfuse import Langfuse
 from langfuse.langchain import CallbackHandler
 from langgraph.graph import END, StateGraph
