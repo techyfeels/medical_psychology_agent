@@ -8,9 +8,9 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-from data_loader import MedicalDataLoader
+from medical_psychology_agent.data_loader import MedicalDataLoader
 from medical_psychology_agent.vectorstore import VectorStoreManager
-from config import Config
+from medical_psychology_agent.config import Config
 
 def main():
     """Main ingestion pipeline"""
